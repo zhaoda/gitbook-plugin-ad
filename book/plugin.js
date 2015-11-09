@@ -6,11 +6,11 @@ require([
     var ad = config.ad || {}
 
     if(ad.contentTop) {
-      $(".book-body .page-inner").prepend(ad.contentTop)
+      $(".book-body .page-inner").prepend(unescape(ad.contentTop))
     }
 
     if(ad.contentBottom) {
-      $(".book-body .page-inner").append(ad.contentBottom)        
+      $(".book-body .page-inner").append(unescape(ad.contentBottom))
     }
   })
 })
