@@ -2,15 +2,32 @@ require([
   "gitbook",
   "jQuery"
 ], function(gitbook, $) {
+  var conf = {}
+
+  function insert() {
+    var ad = conf.ad || {}
+
+    $.each(['Top', 'Bottom'], function(i, position) {
+      var content = ad['content' + position]
+
+      if(content) {
+        var append = position === 'Top' ? 'prependTo' : 'appendTo',
+            positionLower = position.toLowerCase()
+            container = $('.book-body .page-inner .page-inner-' + positionLower)
+
+        if(!container.length) {
+          container = $('<div class="page-inner-' + positionLower + '"></div>')[append]($(".book-body .page-inner"))
+        }
+
+        container.html(unescape(content))
+      }
+    })
+  }
+
   gitbook.events.bind("start", function(e, config) {
-    var ad = config.ad || {}
+    conf = config || {}
 
-    if(ad.contentTop) {
-      $(".book-body .page-inner").prepend(unescape(ad.contentTop))
-    }
-
-    if(ad.contentBottom) {
-      $(".book-body .page-inner").append(unescape(ad.contentBottom))
-    }
+    insert()
   })
+  gitbook.events.bind("page.change", insert)
 })

@@ -18,4 +18,7 @@ GitBook Plugin to add ads or other content on every page.
 
 In order to resolve `JSON` safety, the best parameters `contentTop` `contentBottom` are encoded using the `escape`.
 
+For example:
+https://github.com/zhaoda/webpack-handbook/blob/master/content/book.json
+
 Then run `gitbook install` to download and install the plugin.
