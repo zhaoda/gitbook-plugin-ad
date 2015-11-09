@@ -1,7 +1,7 @@
 {
   "name": "gitbook-plugin-ad",
   "engines": {"gitbook": "*"},
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "GitBook Plugin to add ads or other content on every page",
   "main": "index.js",
   "scripts": {

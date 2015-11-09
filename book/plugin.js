@@ -26,8 +26,6 @@ require([
 
   gitbook.events.bind("start", function(e, config) {
     conf = config || {}
-
-    insert()
   })
   gitbook.events.bind("page.change", insert)
 })
